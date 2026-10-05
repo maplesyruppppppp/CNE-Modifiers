@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<language>
+    <group name="PlayState">
+        <str id="modifiers.game.noMisses">Don't Miss!</str>
+        <str id="modifiers.game.sicksOnly">Only Get Sick Ratings!</str>
+    </group>
+
+    <group name="FreeplayMenu">
+        <str id="modifiers.freeplay.info">Press [M] to open the modifiers menu</str>
+        <str id="modifiers.freeplay.scoreModifiers">PERSONAL BEST (MODIFIERS): {0}</str>
+    </group>
+
+    <group name="PauseSubState">
+        <str id="pause.modifiers">Change Modifiers</str>
+    </group>
+
+    <group name="ModifiersMenu">
+        <str id="modifiers.menu.title">Modifiers</str>
+        <str id="modifiers.menu.noScore">No Score Bonus</str>
+        <str id="modifiers.menu.scoreBonus">Score Bonus: {0}</str>
+        <str id="modifiers.menu.changes">(Changes will restart the song)</str>
+
+        
+        <str id="modifiers.menu.botplay">Botplay</str>
+        <str id="modifiers.menu.botplay.description">If checked, a bot will play the game for you.</str>
+
+        <str id="modifiers.menu.practice">Practice Mode</str>
+        <str id="modifiers.menu.practice.description">If checked, losing all of your health will not kill you.</str>
+
+        <str id="modifiers.menu.scrollSpeedMult">Scroll Speed Mult</str>
+        <str id="modifiers.menu.scrollSpeedMult.description">Change to lower or increase the note scroll speed.</str>
+
+        <str id="modifiers.menu.playbackRate">Playback Rate</str>
+        <str id="modifiers.menu.playbackRate.description">Adjust the playback rate of the game. (Higher = faster and higher pitched song, Lower = slower and lower pitched song)</str>
+
+        <str id="modifiers.menu.healthGainMult">Health Gain Mult</str>
+        <str id="modifiers.menu.healthGainMult.description">Change how much you gain health on each note hit.</str>
+
+        <str id="modifiers.menu.healthLossMult">Health Loss Mult</str>
+        <str id="modifiers.menu.healthLossMult.description">Change how much you lose health on each note miss.</str>
+
+        <str id="modifiers.menu.hitWindowsMult">Hit Window Mult</str>
+        <str id="modifiers.menu.hitWindowsMult.description">Change to make the hit windows more tight or more free. (Tight = less likely to get good ratings, Free = more likely to get good ratings)</str>
+
+        <str id="modifiers.menu.fadingNotes">Fading Notes</str>
+        <str id="modifiers.menu.fadingNotes.description">Choose whether you want your notes to fade away or fade in.</str>
+        <str id="modifiers.menu.fadingNotes.off">Off</str>
+        <str id="modifiers.menu.fadingNotes.away">Away</str>
+        <str id="modifiers.menu.fadingNotes.in">In</str>
+
+        <str id="modifiers.menu.cameraFlip">Camera Flip</str>
+        <str id="modifiers.menu.cameraFlip.description">Choose whether you want the cameras to be flipped vertically, horizontally, or both.</str>
+        <str id="modifiers.menu.cameraFlip.off">Off</str>
+        <str id="modifiers.menu.cameraFlip.vertical">Verically</str>
+        <str id="modifiers.menu.cameraFlip.horizontal">Horizontally</str>
+        <str id="modifiers.menu.cameraFlip.both">Both</str>
+
+        <str id="modifiers.menu.randomizedNotes">Randomized Notes</str>
+        <str id="modifiers.menu.randomizedNotes.description">If checked, the chart will become completely randomized.</str>
+
+        <str id="modifiers.menu.perfectionist">Perfectionist</str>
+        <str id="modifiers.menu.perfectionist.description">Choose whether you can not miss or get sick ratings only. Failing to do so will result in a game over.</str>
+        <str id="modifiers.menu.perfectionist.off">Off</str>
+        <str id="modifiers.menu.perfectionist.noMisses">No Miss</str>
+        <str id="modifiers.menu.perfectionist.sicksOnly">Sicks</str>
+    </group>
+</language>
