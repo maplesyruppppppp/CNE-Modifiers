@@ -9,6 +9,7 @@ class ModifiersUtil
         "playbackRate" => 1.0,
         "healthGainMult" => 1.0,
         "healthLossMult" => 1.0,
+        "maxHealthMult" => 1.0,
         "hitWindowsMult" => 1.0,
         "fadingNotes" => "off",
         "cameraFlip" => "off",
@@ -92,6 +93,7 @@ class ModifiersUtil
             case "scrollSpeedMult": return (v - 1) * 0.5;
             case "healthGainMult": return (v - 1) * -0.25;
             case "healthLossMult": return (v - 1) * 0.25;
+            case "maxHealthMult": return (v - 1) * -0.2;
             case "hitWindowsMult": return (v - 1) * -0.35;
             case "fadingNotes": return (v != 'off') ? 0.25 : 0;
             case "cameraFlip":

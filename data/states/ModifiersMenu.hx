@@ -14,6 +14,7 @@ var items:Array<Dynamic> = [
     {id: "playbackRate",    type: "float", min: 0.5, max: 3.0, step: 0.05, suffix: "x"},
     {id: "healthGainMult",  type: "float", min: 0.0, max: 2.0, step: 0.05, suffix: "x"},
     {id: "healthLossMult",  type: "float", min: 0.5, max: 3.0, step: 0.05, suffix: "x"},
+    {id: "maxHealthMult",   type: "float", min: 0.5, max: 2.0, step: 0.05, suffix: "x"},
     {id: "hitWindowsMult",  type: "float", min: 0.5, max: 3.0, step: 0.05, suffix: "x"},
     {id: "fadingNotes",     type: "array", options: ["off", "away", "in"]},
     {id: "cameraFlip",      type: "array", options: ["off", "vertical", "horizontal", "both"]},

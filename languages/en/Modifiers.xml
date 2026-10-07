@@ -39,6 +39,9 @@
         <str id="modifiers.menu.healthLossMult">Health Loss Mult</str>
         <str id="modifiers.menu.healthLossMult.description">Change how much you lose health on each note miss.</str>
 
+        <str id="modifiers.menu.maxHealthMult">Max Health Mult</str>
+        <str id="modifiers.menu.maxHealthMult.description">Change how much maximum health you can have.</str>
+
         <str id="modifiers.menu.hitWindowsMult">Hit Window Mult</str>
         <str id="modifiers.menu.hitWindowsMult.description">Change to make the hit windows more tight or more free. (Tight = less likely to get good ratings, Free = more likely to get good ratings)</str>
 
