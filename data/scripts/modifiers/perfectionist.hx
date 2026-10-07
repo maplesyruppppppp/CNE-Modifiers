@@ -12,17 +12,14 @@ function postCreate()
 
 function postUpdate()
 {
-    updateRatingStuff = function()
+    switch(FlxG.save.data.modifiers_perfectionist)
     {
-        switch(FlxG.save.data.modifiers_perfectionist)
-        {
-            case 'noMisses':
-                missesTxt.text = TU.translate('modifiers.game.noMisses');
-            case 'sicksOnly':
-                accFormat.format.color = FlxColor.WHITE;
-                accuracyTxt.text = TU.translate('modifiers.game.sicksOnly');
-        }
-    };
+        case 'noMisses':
+            missesTxt.text = TU.translate('modifiers.game.noMisses');
+        case 'sicksOnly':
+            accFormat.format.color = FlxColor.WHITE;
+            accuracyTxt.text = TU.translate('modifiers.game.sicksOnly');
+    }
 }
 
 function onPlayerMiss(e)
