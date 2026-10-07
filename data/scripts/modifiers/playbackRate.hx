@@ -16,6 +16,10 @@ function onScoreMultiply(e)
     e.data.bonus += FlxG.save.data.modifiers_playbackRate - 1;
 }
 
+function onGameOver()
+{
+    inst.pitch = 1;
+}
 function destroy()
 {
     inst.pitch = 1;
