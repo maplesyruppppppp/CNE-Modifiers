@@ -13,6 +13,7 @@ Current modifiers:
 - Playback Rate
 - Health Gain Multiplication
 - Health Loss Multiplication
+- Maximum Health Multiplication
 - Hit Windows Multiplication
 - Fading Notes (both fade in and away)
 - Camera Flipping (both horizontal and vertical)
