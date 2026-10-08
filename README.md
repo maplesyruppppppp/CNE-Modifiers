@@ -18,7 +18,9 @@ Current modifiers:
 - Fading Notes (both fade in and away)
 - Camera Flipping (both horizontal and vertical)
 - Randomized Notes
-- Perfectionist (note misses or sick ratings only) 
+- Perfectionist (note misses or sick ratings only)
+- Opponent Health Drain
+- Poisoned Health
 
 ## Modding
 This addon includes a preprocessor that can be used to detect if the addon is enabled in your mods, meaning you can add modifiers support to your mod if you want to!
