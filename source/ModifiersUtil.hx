@@ -17,6 +17,7 @@ class ModifiersUtil
         "perfectionist" => "off",
         "dadHealthDrain" => 0.0,
         "poison" => 0.0,
+        "sustainToJacks" => false,
     ];
 
     public static function register(name:String, def:Dynamic):Void
@@ -108,6 +109,7 @@ class ModifiersUtil
                 else (v == 'noMisses') ? 0.15 : 0.4;
             case "dadHealthDrain": v * 0.25;
             case "poison": v * 0.15;
+            case "sustainToJacks": v ? 0.35 : 0;
             default: 0;
         }
     }

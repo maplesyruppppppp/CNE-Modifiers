@@ -72,5 +72,8 @@
 
         <str id="modifiers.menu.poison">Poisoned Health</str>
         <str id="modifiers.menu.poison.description">Increase the value to strengthen health poisonage. It does not stop draining unless when you are at low health.</str>
+
+        <str id="modifiers.menu.sustainToJacks">Sustain Jacks</str>
+        <str id="modifiers.menu.sustainToJacks.description">When checked, sustain notes will be replaced by jacks instead.</str>
     </group>
 </language>

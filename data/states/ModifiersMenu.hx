@@ -22,6 +22,7 @@ var items:Array<Dynamic> = [
     {id: "perfectionist",   type: "array", options: ["off", "noMisses", "sicksOnly"]},
     {id: "dadHealthDrain",  type: "float", min: 0.0, max: 2.0, step: 0.05, suffix: "x"},
     {id: "poison",          type: "float", min: 0.0, max: 2.0, step: 0.05, suffix: "x"},
+    {id: "sustainToJacks",  type: "bool"},
 ];
 var itemTexts:Array<Alphabet> = [];
 var curSelected:Int = 0;
@@ -88,6 +89,7 @@ function create()
             cb.addOffset("turnOff", 24, 30);
             cb.scale.set(0.7, 0.7);
             cb.updateHitbox();
+            cb.antialiasing = true;
             add(cb);
             checkboxes.push(cb);
         }
