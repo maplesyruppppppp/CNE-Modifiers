@@ -15,6 +15,8 @@ class ModifiersUtil
         "cameraFlip" => "off",
         "randomizedNotes" => false,
         "perfectionist" => "off",
+        "dadHealthDrain" => 0.0,
+        "poison" => 0.0,
     ];
 
     public static function register(name:String, def:Dynamic):Void
@@ -87,24 +89,26 @@ class ModifiersUtil
     public static function getBonus(name:String):Float
     {
         var v = get(name);
-        switch (name)
+        return switch (name)
         {
-            case "playbackRate": return v - 1;
-            case "scrollSpeedMult": return (v - 1) * 0.5;
-            case "healthGainMult": return (v - 1) * -0.25;
-            case "healthLossMult": return (v - 1) * 0.25;
-            case "maxHealthMult": return (v - 1) * -0.2;
-            case "hitWindowsMult": return (v - 1) * -0.35;
-            case "fadingNotes": return (v != 'off') ? 0.25 : 0;
+            case "playbackRate": v - 1;
+            case "scrollSpeedMult": (v - 1) * 0.5;
+            case "healthGainMult": (v - 1) * -0.25;
+            case "healthLossMult": (v - 1) * 0.25;
+            case "maxHealthMult": (v - 1) * -0.2;
+            case "hitWindowsMult": (v - 1) * -0.35;
+            case "fadingNotes": (v != 'off') ? 0.25 : 0;
             case "cameraFlip":
-                if (v == 'off') return 0;
-                else if (v == 'horizontal' || v == 'vertical') return 0.25;
-                else if (v == 'both') return 0.5;
-            case "randomizedNotes": return v ? 0.1 : 0;
+                if (v == 'off') 0;
+                else if (v == 'horizontal' || v == 'vertical') 0.25;
+                else if (v == 'both') 0.5;
+            case "randomizedNotes": v ? 0.1 : 0;
             case "perfectionist":
-                if (v == 'off') return 0;
-                else return (v == 'noMisses') ? 0.15 : 0.4;
-            default: return 0;
+                if (v == 'off') 0;
+                else (v == 'noMisses') ? 0.15 : 0.4;
+            case "dadHealthDrain": v * 0.25;
+            case "poison": v * 0.15;
+            default: 0;
         }
     }
 

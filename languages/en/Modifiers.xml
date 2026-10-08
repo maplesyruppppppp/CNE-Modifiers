@@ -66,5 +66,11 @@
         <str id="modifiers.menu.perfectionist.off">Off</str>
         <str id="modifiers.menu.perfectionist.noMisses">No Miss</str>
         <str id="modifiers.menu.perfectionist.sicksOnly">Sicks</str>
+
+        <str id="modifiers.menu.dadHealthDrain">Dad Health Drain</str>
+        <str id="modifiers.menu.dadHealthDrain.description">Increase the value to strengthen the health drain each time the opponent hits a note. The health drainage will not kill you and is limited to low health.</str>
+
+        <str id="modifiers.menu.poison">Poisoned Health</str>
+        <str id="modifiers.menu.poison.description">Increase the value to strengthen health poisonage. It does not stop draining unless when you are at low health.</str>
     </group>
 </language>

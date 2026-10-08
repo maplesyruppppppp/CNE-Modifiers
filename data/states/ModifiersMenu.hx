@@ -20,6 +20,8 @@ var items:Array<Dynamic> = [
     {id: "cameraFlip",      type: "array", options: ["off", "vertical", "horizontal", "both"]},
     {id: "randomizedNotes", type: "bool"},
     {id: "perfectionist",   type: "array", options: ["off", "noMisses", "sicksOnly"]},
+    {id: "dadHealthDrain",  type: "float", min: 0.0, max: 2.0, step: 0.05, suffix: "x"},
+    {id: "poison",          type: "float", min: 0.0, max: 2.0, step: 0.05, suffix: "x"},
 ];
 var itemTexts:Array<Alphabet> = [];
 var curSelected:Int = 0;
