@@ -1,24 +1,61 @@
+import haxe.ds.StringMap;
+import haxe.xml.Access;
+
 class ModifiersUtil
 {
     public static var PREFIX:String = "modifiers_";
 
-    public static var defaults:Map<String, Dynamic> = [
-        "botplay" => false,
-        "practice" => false,
-        "scrollSpeedMult" => 1.0,
-        "playbackRate" => 1.0,
-        "healthGainMult" => 1.0,
-        "healthLossMult" => 1.0,
-        "maxHealthMult" => 1.0,
-        "hitWindowsMult" => 1.0,
-        "fadingNotes" => "off",
-        "cameraFlip" => "off",
-        "randomizedNotes" => false,
-        "perfectionist" => "off",
-        "dadHealthDrain" => 0.0,
-        "poison" => 0.0,
-        "sustainToJacks" => false,
-    ];
+    public static var list:Array<Dynamic> = [];
+    public static var byId:StringMap<Dynamic> = new StringMap();
+    public static var defaults:StringMap<Dynamic> = new StringMap();
+
+    static function num(x:Xml, name:String):Float
+        return x.exists(name) ? Std.parseFloat(x.get(name)) : 0;
+
+    public static function load():Void
+    {
+        if (list.length > 0) return;
+
+        var root = Xml.parse(Assets.getText(Paths.xml("config/modifiers"))).firstElement();
+
+        for (m in root.elementsNamed("modifier"))
+        {
+            var type = m.get("type");
+            var defStr = m.get("default");
+            var def:Dynamic = switch (type)
+            {
+                case "bool": defStr == "true";
+                case "float": Std.parseFloat(defStr);
+                default: defStr;
+            }
+
+            var info:Dynamic = {
+                id: m.get("id"),
+                type: type,
+                def: def,
+                disablesScore: m.exists("disablesScore") && m.get("disablesScore") == "true",
+                bonus: num(m, "bonus"),
+                min: num(m, "min"),
+                max: num(m, "max"),
+                step: num(m, "step"),
+                suffix: m.exists("suffix") ? m.get("suffix") : null,
+                base: num(m, "base"),
+                scale: num(m, "scale"),
+                options: [],
+                optionBonus: new StringMap()
+            };
+
+            for (o in m.elementsNamed("option"))
+            {
+                info.options.push(o.get("id"));
+                info.optionBonus.set(o.get("id"), Std.parseFloat(o.get("bonus")));
+            }
+
+            list.push(info);
+            byId.set(info.id, info);
+            defaults.set(info.id, def);
+        }
+    }
 
     public static function register(name:String, def:Dynamic):Void
     {
@@ -31,15 +68,22 @@ class ModifiersUtil
 
     public static function init():Void
     {
-        for (name => def in defaults)
+        load();
+        for (name in defaults.keys())
+        {
+            var def = defaults.get(name);
             if (Reflect.field(FlxG.save.data, PREFIX + name) == null)
                 Reflect.setField(FlxG.save.data, PREFIX + name, def);
+        }
     }
 
     public static function resetToDefaults(flush:Bool = true):Void
     {
-        for (name => def in defaults)
+        for (name in defaults.keys())
+        {
+            var def = defaults.get(name);
             Reflect.setField(FlxG.save.data, PREFIX + name, def);
+        }
 
         if (flush) FlxG.save.flush();
     }
@@ -47,6 +91,7 @@ class ModifiersUtil
 
     public static function get(name:String):Dynamic
     {
+        load();
         var v = Reflect.field(FlxG.save.data, PREFIX + name);
         return v != null ? v : defaults.get(name);
     }
@@ -89,28 +134,16 @@ class ModifiersUtil
 
     public static function getBonus(name:String):Float
     {
+        load();
+        var m = byId.get(name);
+        if (m == null) return 0;
+
         var v = get(name);
-        return switch (name)
+        return switch (m.type)
         {
-            case "playbackRate": v - 1;
-            case "scrollSpeedMult": (v - 1) * 0.5;
-            case "healthGainMult": (v - 1) * -0.25;
-            case "healthLossMult": (v - 1) * 0.25;
-            case "maxHealthMult": (v - 1) * -0.2;
-            case "hitWindowsMult": (v - 1) * -0.35;
-            case "fadingNotes": (v != 'off') ? 0.25 : 0;
-            case "cameraFlip":
-                if (v == 'off') 0;
-                else if (v == 'horizontal' || v == 'vertical') 0.25;
-                else if (v == 'both') 0.5;
-            case "randomizedNotes": v ? 0.1 : 0;
-            case "perfectionist":
-                if (v == 'off') 0;
-                else (v == 'noMisses') ? 0.15 : 0.4;
-            case "dadHealthDrain": v * 0.25;
-            case "poison": v * 0.15;
-            case "sustainToJacks": v ? 0.35 : 0;
-            default: 0;
+            case "bool": v ? m.bonus : 0;
+            case "array": m.optionBonus.exists(v) ? m.optionBonus.get(v) : 0;
+            default: (v - m.base) * m.scale;
         }
     }
 
@@ -123,5 +156,10 @@ class ModifiersUtil
     }
 
     public static function isScoreEligible():Bool
-        return !get("botplay") && !get("practice");
+    {
+        load();
+        for (m in list)
+            if (m.disablesScore && get(m.id) == true) return false;
+        return true;
+    }
 }

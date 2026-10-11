@@ -7,23 +7,7 @@ var fromPause:Bool = false;
 var startValues:String = "";
 var changed:Bool = false;
 
-var items:Array<Dynamic> = [
-    {id: "botplay",         type: "bool"},
-    {id: "practice",        type: "bool"},
-    {id: "scrollSpeedMult", type: "float", min: 0.5, max: 3.0, step: 0.05, suffix: "x"},
-    {id: "playbackRate",    type: "float", min: 0.5, max: 3.0, step: 0.05, suffix: "x"},
-    {id: "healthGainMult",  type: "float", min: 0.0, max: 2.0, step: 0.05, suffix: "x"},
-    {id: "healthLossMult",  type: "float", min: 0.5, max: 3.0, step: 0.05, suffix: "x"},
-    {id: "maxHealthMult",   type: "float", min: 0.5, max: 2.0, step: 0.05, suffix: "x"},
-    {id: "hitWindowsMult",  type: "float", min: 0.5, max: 3.0, step: 0.05, suffix: "x"},
-    {id: "fadingNotes",     type: "array", options: ["off", "away", "in"]},
-    {id: "cameraFlip",      type: "array", options: ["off", "vertical", "horizontal", "both"]},
-    {id: "randomizedNotes", type: "bool"},
-    {id: "perfectionist",   type: "array", options: ["off", "noMisses", "sicksOnly"]},
-    {id: "dadHealthDrain",  type: "float", min: 0.0, max: 2.0, step: 0.05, suffix: "x"},
-    {id: "poison",          type: "float", min: 0.0, max: 2.0, step: 0.05, suffix: "x"},
-    {id: "sustainToJacks",  type: "bool"},
-];
+var items:Array<Dynamic> = [];
 var itemTexts:Array<Alphabet> = [];
 var curSelected:Int = 0;
 
@@ -53,6 +37,9 @@ function formatPercent(b:Float):String
 
 function create()
 {
+    ModifiersUtil.load();
+    items = ModifiersUtil.list;
+
     fromPause = data != null && data.fromPause == true;
 
     menuBG = new FlxSprite().loadGraphic(Paths.image('menus/menuTransparent'));

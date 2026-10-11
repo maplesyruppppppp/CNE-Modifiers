@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modifiers>
+    <modifier id="botplay"         type="bool"  default="false" disablesScore="true"/>
+    <modifier id="practice"        type="bool"  default="false" disablesScore="true"/>
+
+    <modifier id="scrollSpeedMult" type="float" default="1.0" min="0.5" max="3.0" step="0.05" suffix="x" base="1" scale="0.5"/>
+    <modifier id="playbackRate"    type="float" default="1.0" min="0.5" max="3.0" step="0.05" suffix="x" base="1" scale="1"/>
+    <modifier id="healthGainMult"  type="float" default="1.0" min="0.0" max="2.0" step="0.05" suffix="x" base="1" scale="-0.25"/>
+    <modifier id="healthLossMult"  type="float" default="1.0" min="0.5" max="3.0" step="0.05" suffix="x" base="1" scale="0.25"/>
+    <modifier id="maxHealthMult"   type="float" default="1.0" min="0.5" max="2.0" step="0.05" suffix="x" base="1" scale="-0.2"/>
+    <modifier id="hitWindowsMult"  type="float" default="1.0" min="0.5" max="3.0" step="0.05" suffix="x" base="1" scale="-0.35"/>
+
+    <modifier id="fadingNotes" type="array" default="off">
+        <option id="off"  bonus="0"/>
+        <option id="away" bonus="0.25"/>
+        <option id="in"   bonus="0.25"/>
+    </modifier>
+    <modifier id="cameraFlip" type="array" default="off">
+        <option id="off"        bonus="0"/>
+        <option id="vertical"   bonus="0.25"/>
+        <option id="horizontal" bonus="0.25"/>
+        <option id="both"       bonus="0.5"/>
+    </modifier>
+
+    <modifier id="randomizedNotes" type="bool" default="false" bonus="0.1"/>
+    <modifier id="sustainToJacks" type="bool" default="false" bonus="0.35"/>
+
+    <modifier id="perfectionist" type="array" default="off">
+        <option id="off"       bonus="0"/>
+        <option id="noMisses"  bonus="0.15"/>
+        <option id="sicksOnly" bonus="0.4"/>
+    </modifier>
+
+    <modifier id="dadHealthDrain" type="float" default="0.0" min="0.0" max="2.0" step="0.05" suffix="x" base="0" scale="0.25"/>
+    <modifier id="poison"         type="float" default="0.0" min="0.0" max="2.0" step="0.05" suffix="x" base="0" scale="0.15"/>
+</modifiers>

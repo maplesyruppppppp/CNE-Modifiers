@@ -21,6 +21,10 @@ var openModifiers = new FuncCommand("openModifiers", "[fromPause]", "(opens Modi
     FlxG.state.persistentUpdate = false;
     FlxG.state.openSubState(new ModSubState("ModifiersMenu"), {fromPause: comingFromPause});
 });
+var resetModifiers = new FuncCommand("resetModifiers", "[flush]", "Resets all modifiers back to their default values.", function(args)
+{
+    ModifiersUtil.resetToDefaults(args[0] == 'true');
+});
 
 function new()
 {
