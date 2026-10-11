@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <language>
     <group name="PlayState">
+        <str id="modifiers.game.botplay">BOTPLAY</str>
+        <str id="modifiers.game.practice">Practice Mode\n(Score bonuses are turned off and won't save)</str>
         <str id="modifiers.game.noMisses">Don't Miss!</str>
         <str id="modifiers.game.sicksOnly">Only Get Sick Ratings!</str>
     </group>

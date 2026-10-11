@@ -12,6 +12,11 @@ function postCreate()
 
 function postUpdate()
 {
+    if (FlxG.save.data.modifiers_botplay)
+    {
+        return;
+    }
+
     switch(FlxG.save.data.modifiers_perfectionist)
     {
         case 'noMisses':
